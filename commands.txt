@@ -1,0 +1,9 @@
+show databases;
+
+show tables;
+
+create databases if not exists world; creates new database
+
+use world; selects the table
+
+source world.sql; This populates the table
