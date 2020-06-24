@@ -1,3 +1,6 @@
+SQL COMMANDS 
+
+
 create table person(
     -> fname varchar(50) NOT NULL,
     -> lname varchar(50) NOT NULL,
@@ -13,3 +16,5 @@ create table person(
     -> add (person_id INT);
     -> alter table person 
     -> add constraint primary key(person_id)
+
+
