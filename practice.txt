@@ -1,31 +1,103 @@
 Test
 1.	Select all Actors from the table.
+select * from actor;
+
 2.	Find the actor with the first name “John”.
+select * from actor
+    -> where first_name = 'John';
+
 3.	Find all actors with the surname “Neeson”.
+select * from actor where last_name = 'Neeson';
+
 4.	Find all actors with Id numbers divisible by 10.
+select * from actor where actor_id like '%0';
+
 5.	What is the description of the movie with ID of 100?
+select * from film
+    -> where film_id = 100;
+
 6.	Find every movie with a rating of “R”.
+select * from film  where rating = 'R';
+
 7.	Find every movie except those with a rating of “R”.
+select * from film  where rating not like 'R';
+
 8.	Find the 10 shortest movies.
+select * from film order by length DESC limit 10;
+
 9.	Now return only the movie titles.
+select title from film;
+
 10.	Find all movies with Deleted Scenes.
+select * from film  
+where special_features = 'Deleted Scenes';
+
 11.	Which last names are not repeated?
+select DISTINCT last_name from actor;
+
 12.	Which last names appear more than once?
+select last_name from actor group by last_name having count(*) > 1;
+
 13.	Which actor has appeared in the most films?
+select fa.actor_id, count(fa.actor_id), a.first_name, a.last_name 
+from film_actor fa join actor a on fa.actor_id=a.actor_id 
+group by fa.actor_id 
+order by count(fa.actor_id) desc limit 1;
+
 14.	Is ‘Academy Dinosaur’ available for rent from Store 1?
+//////////
+
 15.	When is ‘Academy Dinosaur’ due?
+//////////
+
 16.	What is that average running time of all the films in the database?
+select AVG(length) from film;
+
 17.	What is the average running time of films by category?
+select avg(f.length) 
+as a_length, c.category_id as cat from film_category c join film f 
+on f.film_id=c.film_id 
+group by cat;
+
 18.	How many movies have Robots in them?
+select * from film where description like '%Robot%';
+
 19.	Find the movie(s) with the longest runtime.
+select MAX(length) from film;
+
 20.	Count how many movies were released in 2010.
+select COUNT(release_year) from film  where release_year = 2010;
+
 21.	Find the titles of all horror movies.
+select title from film_list 
+    -> where category = 'horror';
+
 22.	Return the full name of the staff member – in a column named full_name – with the ID of 1.
+
+
 23.	Retrieve all movies that Fred Costner has appeared in.
+select title from film_list where actors like '%FRED%';
+
+
 24.	Find out which location has the most copies of BUCKET BROTHERHOOD.
+////////////
+
 25.	How many distinct countries are there?
+select count(DISTINCT country_id) as "Number of unique countrys" from country;
+
 1.	What are the names of all the languages in the database (sorted alphabetically)?
+select name from language
+    -> order by name;
+
 26.	Return the full names (first and last) of actors with “son” in their last name, ordered by their first name.
+select first_name, last_name from actor where last_name like '%son%'
+    -> order by first_name;
+
 27.	Create a list of categories and the number of films for each category.
+select category,  count(*) AS "Number of films" from film_list group by category;
+
 28.	Create a list of actors and the number of movies by each actor.
-29.	Which actor/actress has appeared in the most movies?
+////////////
+
+
+
