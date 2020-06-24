@@ -3,3 +3,13 @@ create table person(
     -> lname varchar(50) NOT NULL,
     -> age INT NOT NULL,
     -> unique(fname, lname));
+    
+    -> alter table person 
+    -> add gender varchar(1);
+    -> alter table person 
+    -> drop colum gender;
+    
+    -> alter table person 
+    -> add (person_id INT);
+    -> alter table person 
+    -> add constraint primary key(person_id)
