@@ -1,4 +1,4 @@
-SQL COMMANDS 
+SQL COMMANDS 24/06/20 
 
 
 create table person(
