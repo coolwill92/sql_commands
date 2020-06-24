@@ -17,4 +17,23 @@ create table person(
     -> alter table person 
     -> add constraint primary key(person_id)
 
+select * from city limit 10;
+select name, populationform form city limit 10;
 
+INSERTING DATA
+
+insert into person (person_id, age, lname, fname) 
+values(1, 27, 'Pearce', 'Will');
+update person 
+set age =28 
+where person_id=1;
+
+INSERTING MORE DATA
+
+insert into person (person_id, age, lname, fname)
+values(2, 25, 'Button', 'Lucy');
+
+DELETING RECORDS
+
+delete from person  
+where fname='Will';
