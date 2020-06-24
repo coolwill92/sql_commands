@@ -1,0 +1,5 @@
+create table person(
+    -> fname varchar(50) NOT NULL,
+    -> lname varchar(50) NOT NULL,
+    -> age INT NOT NULL,
+    -> unique(fname, lname));
