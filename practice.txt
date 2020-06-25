@@ -1,3 +1,8 @@
+SAKILA 
+
+
+
+
 Test
 1.	Select all Actors from the table.
 select * from actor;
@@ -73,7 +78,7 @@ select title from film_list
     -> where category = 'horror';
 
 22.	Return the full name of the staff member – in a column named full_name – with the ID of 1.
-
+/////////////
 
 23.	Retrieve all movies that Fred Costner has appeared in.
 select title from film_list where actors like '%FRED%';
@@ -97,7 +102,52 @@ select first_name, last_name from actor where last_name like '%son%'
 select category,  count(*) AS "Number of films" from film_list group by category;
 
 28.	Create a list of actors and the number of movies by each actor.
-////////////
+SELECT count(film_actor.actor_id), actor.first_name, actor.last_name 
+FROM actor INNER JOIN film_actor ON actor.actor_id = film_actor.actor_id
+GROUP BY film_actor.actor_id ;
+
+29.	Which actor/actress has appeared in the most movies?
+select count(film_actor.actor_id), 
+actor.first_name, actor.last_name from actor 
+INNER JOIN film_actor ON actor.actor_id = film_actor.actor_id group by film_actor.actor_id 
+order by count(film_actor.actor_id) desc limit 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
