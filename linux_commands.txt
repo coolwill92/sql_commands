@@ -1,0 +1,37 @@
+ 1  man ls
+    2  sudo apt get update
+    3  sudo apt get-update
+    4  sudo apt update
+    5  sudo apt upgrade -y
+    6  ll
+    7  ls
+    8  touch test.txt
+    9  ls
+   10  touch test1.txt
+   11  touch test2.txt
+   12  ls
+   13  touch a.txt
+   14  touch 656.txt
+   15  ls
+   16  ls *.txt
+   17* 
+   18  touch hello.java
+   19  touch 45454.c
+   20  ls *.txt
+   21  ls
+   22  ls *test
+   23  ls test*
+   24  ls test*.txt
+   25  ls te*st.txt
+   26  ls test*.txt
+   27  unmae -r
+   28  unmae
+   29  uname -r
+   30  who
+   31  user=$(who)
+   32  echo  'Hi will'
+   33  print user
+   34  echo $user
+   35  test=$(who)
+   36  echo $test
+   37  history
