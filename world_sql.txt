@@ -1,78 +1,128 @@
 
 1. Using COUNT, get the number of cities in the USA.
 
+select count(name) from city 
+where countrycode=(select name from country where name='united states');
+
 
 
 2. Find out what the population and average life expectancy for
 people in Argentina (ARG) is.
+
+select AVG(population) from country UNION select AVG(lifeexpectancy) from country where n
+ame = 'Argentina';
 
 
 
 3. Using IS NOT NULL, ORDER BY, LIMIT, what country has the
 highest life expectancy?
 
+select * from country where lifeexpectancy IS NOT NULL order by lifeexpectancy DESC limit
+ 1 \G;
+
 
 
 4. Using JOIN … ON, what is the capital of Spain (ESP)?
+select c.name from city c join coutnry fc on fc.capital=c.id where fc.name="spain"
 
 
-5. Using JOIN … ON, list all the languages spoken in the &#39;Southeast
-Asia&#39; region.
+5. Using JOIN … ON, list all the languages spoken in the Southeast
+Asia region.
+select cl.language 
+
+select countrylanguage.langauge from countrylanguage join country on country.code where country.region = "southeast asisa";
 
 
-6. Select 25 cities around the world that start with the letter &#39;F&#39; in a
+6. Select 25 cities around the world that start with the letter the letter 'F' in a
 single SQL query.
+
+select * from city where name like 'F%' limit 25 \G
 
 
 7. Using COUNT, get the number of cities in China.
 
+select count(name) from city where countrycode=(select name from country where name='China');
 
-8. Using IS NOT NULL, ORDER BY, &amp; LIMIT, what country has the
+
+
+8. Using IS NOT NULL, ORDER BY, & LIMIT, what country has the
 lowest population?
+
+select * from country where population IS NOT NULL order by population ASC limit 1 \G;
+
 
 
 9. Using aggregation, return the number of countries in the database.
 
+select count(Name) from country \G;
+
 
 10. What are the top ten largest countries?
+
+select Name,population from country order by population desc limit 10\G
+
 
 
 11. List the top five largest cities in Japan.
 
-
+select * from city where country = "jpn" order by population desc limit 5;
 
 12. List the names and country codes of every country which has
-Elizabeth II as its Head of State.
+Elisabeth II as its Head of State.
+
+select name, code from country where headofstate = 'Elisabeth II';
 
 
 13. List the top ten countries which have the smallest population-to-
 area ratio.
+
+select name, (population/surfacearea) as ratio from country where (population/surfacearea) > 0 order by ratio limnit 10;
 
 
 
 14. List every unique world language, according to the World
 database.
 
+select distinct language from countrylanguage;
 
-15. What are the top 10 richest countries by GDP?
+15. What are the top 10 richest countries by GNP?
+
+select name, GNP from country order by GNP desc limit 10 \G;
 
 
 16. What are the top 10 largest countries by surface area?
+
+select Name,surfacearea from country order by surfacearea desc limit 10\G
+
 
 
 17. List every country where over 50% of its population can speak
 French.
 
+select * from countrylanguage where language= "french"
+AND percentage > 50;
 
 
 18. Which country has the worst life expectancy?
 
+select * from coutnry where lifeexpectancy is not nul order by lifeexpectancy  asc limit 1;
+
 
 19. What is the most common government form?
 
+select govermentform count(*)
+from country groub by govermentform order by count (*) desc limit 1;
 
 20. How many countries have gained independence since records
 began?
+
+
+
+
+
+
+
+
 
 
 
